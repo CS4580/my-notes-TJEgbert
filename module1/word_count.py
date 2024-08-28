@@ -5,17 +5,23 @@ from urllib.request import urlopen
 
 
 def count_words_from_web_file(url_address):
+    """Reads file from the passed in url_address
+
+    Args:
+        url_address (string): The url of the file the user wants to read
+
+    Returns:
+        int: The total number of the words from the url file
+    """
     words = 0
-    # TODO: Read file from web
-    with urlopen(url_address) as data:
+    with urlopen(url_address) as data: # reads the file from the url
         for line in data:
-            print(line, type(line))
+            # print(line, type(line))
             line = line.decode('utf-8') # convert bytes to string
             line_words = line.split()
-            for word in line_words:
+            for word in line_words: # counts the number of words in a line
                 words += 1
 
-    # TODO: Count number of words
     return words
 
 
