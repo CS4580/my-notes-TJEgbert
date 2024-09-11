@@ -25,6 +25,7 @@ def main():
     print(f'Slicing elements 1:4 {arr_1d[1:4]}')
     print(f'Slicing elements 1:4:2 {arr_1d[1:4:2]}') # last number is the step size
 
+    
 
 
 if __name__ == "__main__":
