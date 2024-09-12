@@ -1,30 +1,62 @@
 """ Download data from our server
 """
-from io import BytesIO
+from urllib.parse import urlparse
 import urllib.request as request
 import zipfile as ZipFile
 
-
 SERVER_URL = 'http://icarus.cs.weber.edu/~hvalle/cs4580/data/'
 
+
+def valid_url(url, file_name):
+    """ Checks if the url is a valid url
+
+    Args:
+        url (str): The url of file to download
+        file_name (str): The file name to download
+
+    Returns:
+        bool: Returns True if the url is valid
+              Returns False is the url is not valid
+    """
+    try:
+        urlparse(url + file_name)
+        return True
+    except ValueError:
+        return False
+  
+
 def download_file(url, file_name):
+    """ Downloads the file from the passed in arguments
+
+    Args:
+        url (str): The url of file to download
+        file_name (str): The file name to download
+    """
     #TODO: Download to pwd
-    downloaded_file = request.urlretrieve(url, file_name)
-    return downloaded_file
+    if valid_url(url, file_name):
+        whole_path = url +  file_name
+        request.urlretrieve(whole_path, file_name)
+    else:
+        print("URL is invalid")
+
 
 def unzip_file(file_name):
+    """ Unzips the passed in file name
+
+    Args:
+        file_name (str): Name of file to be unzipped 
+    """
     # TODO: unzip file
-    print(file_name)
-    with ZipFile(file_name, 'r') as zObject:
-        zObject.extractAll('.')
+    with ZipFile.ZipFile(file_name, 'r') as zObject:
+        zObject.extractall('.')
     
+
 def main():
     """Driven Function
     """
     data = 'pandas01Data.zip'
-    pdw = download_file(SERVER_URL, data)
-    unzip_file(pdw)
-
+    download_file(SERVER_URL, data)
+    unzip_file(data)
 
 
 if __name__ == "__main__":
