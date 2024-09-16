@@ -36,6 +36,8 @@ def download_file(url, file_name):
     if valid_url(url, file_name):
         whole_path = url +  file_name
         request.urlretrieve(whole_path, file_name)
+        # add a check to make it downloaded correctly
+        unzip_file(file_name)
     else:
         print("URL is invalid")
 
@@ -54,9 +56,9 @@ def unzip_file(file_name):
 def main():
     """Driven Function
     """
-    data = 'pandas01Data.zip'
-    download_file(SERVER_URL, data)
-    unzip_file(data)
+    # data = 'pandas01Data.zip'
+    # download_file(SERVER_URL, data)
+     #unzip_file(data)
 
 
 if __name__ == "__main__":
