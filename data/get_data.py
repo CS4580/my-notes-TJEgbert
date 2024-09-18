@@ -53,12 +53,17 @@ def unzip_file(file_name):
         zObject.extractall('.')
     
 
+#TODO: Create a function to download the files
+# from Kaggle directly by passing the data set
+
+#TODO: do error checking and display information 
+
 def main():
     """Driven Function
     """
     #data = 'pandas02Data.zip'
     #download_file(SERVER_URL, data)
-     #unzip_file(data)
+    unzip_file('hotel-booking-demand.zip')
 
 
 if __name__ == "__main__":
