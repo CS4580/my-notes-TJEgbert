@@ -63,7 +63,7 @@ def main():
     """
     #data = 'pandas02Data.zip'
     #download_file(SERVER_URL, data)
-    unzip_file('hotel-booking-demand.zip')
+    unzip_file('wine-reviews.zip')
 
 
 if __name__ == "__main__":
