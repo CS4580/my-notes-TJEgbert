@@ -50,20 +50,25 @@ def unzip_file(file_name):
     """
     # TODO: unzip file
     with ZipFile.ZipFile(file_name, 'r') as zObject:
-        zObject.extractall('.')
+        zObject.extractall('/data')
     
 
 #TODO: Create a function to download the files
 # from Kaggle directly by passing the data set
 
 #TODO: do error checking and display information 
+#TODO: Enable options for downloading sources
+# -i for icarus server <FILE>
+# -k for kaggle <DATASET>
+# -s for other server: <SERVER> <FILE>
+# If no arguments are provided
 
 def main():
     """Driven Function
     """
-    #data = 'pandas02Data.zip'
-    #download_file(SERVER_URL, data)
-    unzip_file('wine-reviews.zip')
+    data = 'plottingDemo01.zip'
+    download_file(SERVER_URL, data)
+    unzip_file('plottingDemo01.zip')
 
 
 if __name__ == "__main__":
