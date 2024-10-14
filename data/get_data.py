@@ -50,7 +50,7 @@ def unzip_file(file_name):
     """
     # TODO: unzip file
     with ZipFile.ZipFile(file_name, 'r') as zObject:
-        zObject.extractall('/data')
+        zObject.extractall('.')
     
 
 #TODO: Create a function to download the files
@@ -66,9 +66,9 @@ def unzip_file(file_name):
 def main():
     """Driven Function
     """
-    data = 'plottingDemo01.zip'
+    data = 'seaborData.zip'
     download_file(SERVER_URL, data)
-    unzip_file('plottingDemo01.zip')
+    unzip_file('seaborData.zip')
 
 
 if __name__ == "__main__":
