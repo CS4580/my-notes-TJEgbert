@@ -77,13 +77,13 @@ This is the most common for of edit-based metric which generally quantifies to w
     - insertions, deletions, or substitution
 
 $$
-D(i, j) =
+D(i, j) = 
 \begin{cases}
 j & \text{if } i = 0 \\
 i & \text{if } j = 0 \\
-D(i-1, j-1) & \text{if } s[i] = t[j]\\
+D(i-1, j-1) & \text{if } s[i] = t[j] \\
 1 + \min \{D(i-1, j), D(i, j-1), D(i-1, j-1)\} & \text{if } s[i] \neq t[j]
-\end{case}
+\end{cases}
 $$
 
 #### For Example
@@ -105,3 +105,17 @@ Need this package
 # VE must be running python 3.11 or less
 conda install Levenshtein
 ```
+
+### KNN Cosine Similarity Distance
+It is used to measure the cosine of the angle between two vectors in a multi-dimensional space.  This is commonly use in text analysis to measure similarities between documents.
+
+Get the formula from the post
+$$
+\text{Cosine Similarity} = \cos(\theta) \\
+= \frac{A \cdot B}{|A| |B|} \\
+= \frac{\sum_{i=1}^{n} A_i B_i} { \sqrt{\sum_{i=1}^n} A_i^2} \cdot \sqrt{\sum{i=1}^{n} B_i^2}
+$$
+
+where
+- $ A \cdot B$ is the dot product of vectors $A$ and $B$
+- $|A|$ and $|B|$ are the magnitude (or Euclidean norms) of vectors $A$ and $B$
