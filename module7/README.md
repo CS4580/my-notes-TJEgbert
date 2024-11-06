@@ -69,3 +69,39 @@ One solution is the `weighted` version.
 # see
 def jaccard_similarity_weighted()
 ```
+
+### KNN with Levenshtein Distance
+This is the most common for of edit-based metric which generally quantifies to work required to transform a string from an initital sequence to a target sequence.
+- It is used to determine the difference between two sequences (strings)
+- It is the distance between two words (minimum number of digits edits)
+    - insertions, deletions, or substitution
+
+$$
+D(i, j) =
+\begin{cases}
+j & \text{if } i = 0 \\
+i & \text{if } j = 0 \\
+D(i-1, j-1) & \text{if } s[i] = t[j]\\
+1 + \min \{D(i-1, j), D(i, j-1), D(i-1, j-1)\} & \text{if } s[i] \neq t[j]
+\end{case}
+$$
+
+#### For Example
+consider these strings:
+- s = 'kitten'
+- t = 'sitting'
+
+Find the 'Levenshteain' Distance
+1. Substitute `k` with `s` is `kitten` -> `sitten` (1 substantiation)
+2. Substitute `e` with `i` is `sitten` -> `sittin` (1 substantiation)
+3. Insert `g` at the end of `sittin` -> `sitting` (1 insert)
+
+```python
+# see
+def knn_levenshtein_title()
+```
+Need this package
+```bash
+# VE must be running python 3.11 or less
+conda install Levenshtein
+```

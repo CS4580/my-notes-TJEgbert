@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 import get_data as gt
+import Levenshtein 
 
 # Constants
 K = 10  # number of closes matches
@@ -36,7 +37,7 @@ def jaccard_similarity_normal(base_case_genres: str, comparator_genres: str):
     return float(numerator)/float(denominator)
 
 
-def _get_weighted_jarracd_simmilarity_dictionary(df):
+def _get_weighted_jaccard_similarity_dictionary(df):
     # Get our selection of our BASE_CASE_ID and SECOND_CASE_ID
     selections_df = [df.loc[BASE_CASE_ID], df.loc[SECOND_CASE_ID]]
     # ADD weights for the similarity index
@@ -52,7 +53,7 @@ def _get_weighted_jarracd_simmilarity_dictionary(df):
 
 
 def jaccard_similarity_weighted(df: pd.DataFrame, comparator_genre: str):
-    weighted_dictionary = _get_weighted_jarracd_simmilarity_dictionary(df)
+    weighted_dictionary = _get_weighted_jaccard_similarity_dictionary(df)
     numerator = 0
     denominator = weighted_dictionary['total']
     for genre in comparator_genre.split(';'):
@@ -60,6 +61,9 @@ def jaccard_similarity_weighted(df: pd.DataFrame, comparator_genre: str):
             numerator += weighted_dictionary[genre]
     return float(numerator)/float(denominator)
 
+
+def knn_levenshtein_title():
+    pass
 
 def knn_analysis_driver(data_df, base_case, comparison_type, metric_func, sorted_value='metric'):
     # WIP: Create df of filter data
@@ -128,6 +132,15 @@ def main():
     data = data[(data['stars'] >= 5) & (data['rating'].isin(['G', 'PG', 'PG-13']))] # Starts and rating filter
     knn_analysis_driver(data_df=data, base_case=base_case,
                         comparison_type='genres', metric_func=jaccard_similarity_weighted, sorted_value='jaccard_similarity_weighted')
+
+    # Task 7: KNN with Levenshtein Distance
+    print(f'\nTask 7: KNN Analysis with Levenshtein Distance')
+    data = gt.load_data(data_file, index_col='IMDB_id')
+    base_case = data.loc[BASE_CASE_ID]
+    print(f'Comparing all to our base case: [{base_case['title']}]')
+    knn_analysis_driver(data_df=data, base_case=base_case,
+                        comparison_type='title', metric_func=Levenshtein.distance, sorted_value='levenshtein_distance')
+
 
 
 if __name__ == '__main__':
