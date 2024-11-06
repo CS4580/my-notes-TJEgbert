@@ -111,9 +111,9 @@ It is used to measure the cosine of the angle between two vectors in a multi-dim
 
 Get the formula from the post
 $$
-\text{Cosine Similarity} = \cos(\theta) \\
-= \frac{A \cdot B}{|A| |B|} \\
-= \frac{\sum_{i=1}^{n} A_i B_i} { \sqrt{\sum_{i=1}^n} A_i^2} \cdot \sqrt{\sum{i=1}^{n} B_i^2}
+\text{Cosine Similarity} = \cos(\theta)  
+= \frac{A \cdot B}{|A| |B|} 
+= \frac{\sum_{i=1}^{n} A_i B_i} { \sqrt{sum_{i=1}^n} A_i^2 \cdot \sqrt{\sum_{i=1}^{n} B_i^2}}
 $$
 
 where
