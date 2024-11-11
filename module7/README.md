@@ -119,3 +119,34 @@ $$
 where
 - $ A \cdot B$ is the dot product of vectors $A$ and $B$
 - $|A|$ and $|B|$ are the magnitude (or Euclidean norms) of vectors $A$ and $B$
+
+### KNN Combining Metrics and Filtering Conditions
+
+Two main concerns with `filtering`:
+- Make too complicated (hard SQL queries)
+- Too strick (end up with no results)
+
+Combined `metrics` to generate `one` results:
+- Weight each metric
+    - Should metrics contribute equally? (50% - 50%, 80% - 20%)
+- Normalization of the combine metric
+    - Make sure they have the same range
+    
+For our example, we will use:
+- `Cosine`: Use 20% of the `plot`
+- `Weighted Jaccard`: Use 80% of `genres`
+
+```python
+#see 
+cosine_and_weighted_jaccard()
+```
+
+## Prediction Metrics
+
+A `prediction` is simple a guess about what is going to transpire.  One prediction is `yes` or `no`.
+
+How do we measure `accuracy` of the prediction?
+
+```python
+accuracy_metric.py
+```
