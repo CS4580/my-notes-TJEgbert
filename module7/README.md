@@ -47,7 +47,7 @@ def euclidean_similarity_normal()
 ```
 
 ### KNN with Jaccard Similarity Index
-Compare members of two individual sets to determine which members are `shared` and which are `distinct`.  The index measure the similarty the two sets.
+Compare members of two individual sets to determine which members are `shared` and which are `distinct`.  The index measure the similarly the two sets.
 
 $$
 J(A, B) = \frac{|A \cap B|}{|A \cap B|}
@@ -63,7 +63,7 @@ def jaccard_similarity_normal()
 The traditional Jaccard works well when doing `one-to-one` comparison between a category.  
 
 One solution is the `weighted` version.
-- Build a dictionary for `each genre` of the moives in our preferred list 
+- Build a dictionary for `each genre` of the movies in our preferred list 
 
 ```python
 # see
@@ -71,7 +71,7 @@ def jaccard_similarity_weighted()
 ```
 
 ### KNN with Levenshtein Distance
-This is the most common for of edit-based metric which generally quantifies to work required to transform a string from an initital sequence to a target sequence.
+This is the most common for of edit-based metric which generally quantifies to work required to transform a string from an initial sequence to a target sequence.
 - It is used to determine the difference between two sequences (strings)
 - It is the distance between two words (minimum number of digits edits)
     - insertions, deletions, or substitution
@@ -153,7 +153,7 @@ accuracy_metric.py
 
 
 ### Confusion Matrix
-It is performed to measure how well your classification model is.  The model could be `binary` or `multi-class`.  Each entry in a confusion matric represents a specific combination of `predicted vs actual classes`.
+It is performed to measure how well your classification model is.  The model could be `binary` or `multi-class`.  Each entry in a confusion metric represents a specific combination of `predicted vs actual classes`.
 
 For binary classification, you have `four` parts:
 - `True Positive (TP)`: Correctly predicted positive observations
@@ -165,10 +165,11 @@ The structure of the matrix is as follow:
 |       | Predicted Positive | Predicted Negative|
 |-------|--------------------|-------------------|
 | Actual Positive: | True Positive (TP) | False Negative (FN) |
-| Actual Negative: | False Postive (FP) | True Negative (TN) |
+| Actual Negative: | False Positive (FP) | True Negative (TN) |
 
 Key metrics:
-- `Accuracy` = $\{frac{{TP + TN}}{{TP + TN + FP + FN}}}$
-- `Perceission` = $\frac{{TP}}{{TP + FP}}$ (useful for imbalance classes)
+- `Accuracy` = $\frac{{TP + TN}}{{TP + TN + FP + FN}}$
+- `Precession` = $\frac{{TP}}{{TP + FP}}$ (useful for imbalance classes)
 - `Recall` (or Sensitivity) = $\frac{{TP}}{{TP + TN}}$
-- `F1 Score` = $2 \times \frac{{Precession \time Recall}} {{Precision + Recall}}$ (harmonic mean of Preceision and recal)
+- `F1 Score` = $2 \times \frac{{Precession \times Recall}} {{Precision + Recall}}$ (harmonic mean of Precision and recall)
+
