@@ -92,13 +92,13 @@ def load_data(file_path, index_col = None):
 def main():
     # TASK 1: Get dataset from server
     print(f'Task 1: Download dataset from server')
-    dataset_file = 'movies.csv'
+    dataset_file = 'FuelConsumptionCo2.csv'
     download_dataset(ICARUS_CS4580_DATASET_URL, dataset_file)
     # TASK 2: Load  data_file into a DataFrame
     print(f'Task 2: Load weather data into a DataFrame')
-    data_file = f'{DATA_FOLDER}/{dataset_file}'
-    data = load_data(data_file, index_col='IMDB_id')
-    print(f'Loaded {len(data)} records')
+    #data_file = f'{DATA_FOLDER}/{dataset_file}'
+    #data = load_data(data_file, index_col='IMDB_id')
+    #print(f'Loaded {len(data)} records')
     # TODO: The rest of your code goes here
 
 
